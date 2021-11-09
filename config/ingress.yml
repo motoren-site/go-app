@@ -8,11 +8,11 @@ metadata:
     #nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: "app.motoren.site"
+  - host: "go-app.motoren.site"
     http:
       paths:
       - pathType: Prefix
-        path: "/go-app"
+        path: "/"
         backend:
           service:
             name: go-app

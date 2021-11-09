@@ -13,8 +13,16 @@ func main() {
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
-    fmt.Println("Request retrived....")
+    fmt.Println("Request retrived from:" + GetIP(r))
     w.WriteHeader(http.StatusOK)
     w.Header().Set("Content-Type", "application/json")
     w.Write([]byte(`{"message":"Hello World from Go"}`))
+}
+
+func GetIP(r *http.Request) string {
+	forwarded := r.Header.Get("X-FORWARDED-FOR")
+	if forwarded != "" {
+		return forwarded
+	}
+	return r.RemoteAddr
 }

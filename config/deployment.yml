@@ -11,6 +11,8 @@ spec:
   template:
     metadata:
       name: go-app
+      labels:
+        k8s-app: go-app
     spec:
       containers:
         - name: go-app

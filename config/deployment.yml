@@ -4,22 +4,18 @@ metadata:
   name: go-app
   namespace: apps
 spec:
-  replicas: 2
+  replicas: 10
   selector:
     matchLabels:
       k8s-app: go-app
   template:
     metadata:
       name: go-app
-      labels:
-        k8s-app: go-app
     spec:
       containers:
         - name: go-app
           image: <IMAGE>
           imagePullPolicy: Always
-          securityContext:
-            privileged: false
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst

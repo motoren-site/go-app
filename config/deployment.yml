@@ -4,7 +4,7 @@ metadata:
   name: go-app
   namespace: apps
 spec:
-  replicas: 20
+  replicas: 30
   selector:
     matchLabels:
       k8s-app: go-app
@@ -21,13 +21,6 @@ spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
-      topologySpreadConstraints:
-      - maxSkew: 1
-        topologyKey: kubernetes.io/hostname
-        whenUnsatisfiable: DoNotSchedule
-        labelSelector:
-          matchLabels:
-            app: go-app
   strategy:
     type: RollingUpdate
   minReadySeconds: 5

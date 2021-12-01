@@ -16,7 +16,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
     fmt.Println("Request retrived from: " + GetIP(r))
     w.WriteHeader(http.StatusOK)
     w.Header().Set("Content-Type", "application/json")
-    w.Write([]byte(`{"message":"Hello World from Go!"}`))
+    w.Write([]byte(`{"message":"Hello World from Go!!"}`))
 }
 
 func GetIP(r *http.Request) string {

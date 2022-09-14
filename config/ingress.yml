@@ -12,7 +12,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: "/app(/|$)(.*)"
+        path: "/go(/|$)(.*)"
         backend:
           service:
             name: go-app
